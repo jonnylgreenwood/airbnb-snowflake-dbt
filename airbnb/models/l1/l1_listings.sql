@@ -1,33 +1,39 @@
-SELECT
-  'amsterdam' AS city,
-  DATE '2025-09-11' AS snapshot_date,
-  *
-FROM {{ source('l0', 'raw__amsterdam__listings__20250911') }}
+{%- set ams = source('l0', 'raw__amsterdam__listings__20250911') -%}
+{%- set par = source('l0', 'raw__paris__listings__20250912') -%}
+{%- set bcn = source('l0', 'raw__barcelona__listings__20250914') -%}
+{%- set lon = source('l0', 'raw__london__listings__20250914') -%}
+{%- set lis = source('l0', 'raw__lisbon__listings__20250921') -%}
 
-UNION ALL
-SELECT
-  'barcelona',
-  DATE '2025-09-14',
-  *
-FROM {{ source('l0', 'raw__barcelona__listings__20250914') }}
+select
+  'amsterdam' as city,
+  {{ snapshot_date_from_relation(ams) }} as snapshot_date,
+  {{ listings_select(ams) }}
+from {{ ams }}
 
-UNION ALL
-SELECT
-  'paris',
-  DATE '2025-09-12',
-  *
-FROM {{ source('l0', 'raw__paris__listings__20250912') }}
+union all
+select
+  'paris' as city,
+  {{ snapshot_date_from_relation(par) }} as snapshot_date,
+  {{ listings_select(par) }}
+from {{ par }}
 
-UNION ALL
-SELECT
-  'lisbon',
-  DATE '2025-09-21',
-  *
-FROM {{ source('l0', 'raw__lisbon__listings__20250921') }}
+union all
+select
+  'barcelona' as city,
+  {{ snapshot_date_from_relation(bcn) }} as snapshot_date,
+  {{ listings_select(bcn) }}
+from {{ bcn }}
 
-UNION ALL
-SELECT
-  'london',
-  DATE '2025-09-14',
-  *
-FROM {{ source('l0', 'raw__london__listings__20250914') }}
+union all
+select
+  'london' as city,
+  {{ snapshot_date_from_relation(lon) }} as snapshot_date,
+  {{ listings_select(lon) }}
+from {{ lon }}
+
+union all
+select
+  'lisbon' as city,
+  {{ snapshot_date_from_relation(lis) }} as snapshot_date,
+  {{ listings_select(lis) }}
+from {{ lis }}

@@ -1,9 +1,3 @@
 models:
   - name: l1_reviews
-    description: Combined calendars from all cities into a single table.
-    # columns:
-    #   - name: id
-    #     description: The unique id.
-    #     data_tests:
-    #       - not_null
-    #       - unique
+    description: Combined reviews from all cities into a single table.

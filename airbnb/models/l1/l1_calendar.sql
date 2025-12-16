@@ -1,33 +1,36 @@
-SELECT
-  'amsterdam' AS city,
-  DATE '2025-09-11' AS snapshot_date,
-  *
-FROM {{ source('l0', 'raw__amsterdam__calendar__20250911') }}
+{%- set ams = source('l0', 'raw__amsterdam__calendar__20250911') -%}
+{%- set par = source('l0', 'raw__paris__calendar__20250912') -%}
+{%- set bar = source('l0', 'raw__barcelona__calendar__20250914') -%}
+{%- set lon = source('l0', 'raw__london__calendar__20250914') -%}
+{%- set lis = source('l0', 'raw__lisbon__calendar__20250921') -%}
+
+select
+  'amsterdam' as city,
+  {{ snapshot_date_from_relation(ams) }} as snapshot_date,
+  {{ calendar_select(ams) }}
+from {{ ams }}
 
 UNION ALL
-SELECT
-  'paris',
-  DATE '2025-09-12',
-  *
-FROM {{ source('l0', 'raw__paris__calendar__20250912') }}
-
+select
+  'barcelona' as city,
+  {{ snapshot_date_from_relation(bar) }} as snapshot_date,
+  {{ calendar_select(bar) }}
+from {{ bar }}
 UNION ALL
-SELECT
-  'barcelona',
-  DATE '2025-09-14',
-  *
-FROM {{ source('l0', 'raw__barcelona__calendar__20250914') }}
-
+select
+  'paris' as city,
+  {{ snapshot_date_from_relation(par) }} as snapshot_date,
+  {{ calendar_select(par) }}
+from {{ par }}
 UNION ALL
-SELECT
-  'london',
-  DATE '2025-09-14',
-  *
-FROM {{ source('l0', 'raw__london__calendar__20250914') }}
-
+select
+  'lisbon' as city,
+  {{ snapshot_date_from_relation(lis) }} as snapshot_date,
+  {{ calendar_select(lis) }}
+from {{ lis }}
 UNION ALL
-SELECT
-  'lisbon',
-  DATE '2025-09-21',
-  *
-FROM {{ source('l0', 'raw__lisbon__calendar__20250921') }}
+select
+  'london' as city,
+  {{ snapshot_date_from_relation(lon) }} as snapshot_date,
+  {{ calendar_select(lon) }}
+from {{ lon }}
