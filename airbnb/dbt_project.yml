@@ -17,7 +17,9 @@ seeds:
 models:
   airbnb:
     # Materialize staging models as views, and marts as tables
-    staging:
+    l0:
       +materialized: view
-    marts:
+    l1:
+      +materialized: view
+    l2:
       +materialized: table
