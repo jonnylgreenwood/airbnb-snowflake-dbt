@@ -18,8 +18,11 @@ models:
   airbnb:
     # Materialize staging models as views, and marts as tables
     l0:
+      +schema: l0
       +materialized: view
     l1:
+      +schema: l1
       +materialized: view
     l2:
+      +schema: l2
       +materialized: table
