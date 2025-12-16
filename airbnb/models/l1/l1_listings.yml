@@ -1,0 +1,9 @@
+models:
+  - name: l1_listings
+    description: Combined listings from all cities into a single table.
+    columns:
+      - name: id
+        description: Unique id.
+        data_tests:
+          - not_null
+          - unique
