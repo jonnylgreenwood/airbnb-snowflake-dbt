@@ -31,4 +31,3 @@ SELECT
   DATE '2025-09-21',
   *
 FROM {{ source('l0', 'raw__lisbon__reviews__20250921') }}
-;
