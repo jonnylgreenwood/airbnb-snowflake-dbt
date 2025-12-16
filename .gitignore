@@ -3,3 +3,11 @@
 ._*
 dbt_packages/
 .venv/
+# KNIME (common)
+**/.metadata/
+**/temp/
+**/cache/
+**/data/
+**/*.knar
+**/*.knwf
+**/*.tmp
