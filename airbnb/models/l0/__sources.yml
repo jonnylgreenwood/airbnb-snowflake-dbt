@@ -1,0 +1,24 @@
+version: 2
+
+# Try using these source definitions instead!
+sources:
+  - name: airbnb_raw
+    database: AIRBNB
+    schema: "l0"
+    description: Unmoidified raw data sourced from Airbnb's production databases
+    tables:
+      - name: raw__amsterdam__calendar__20250911
+      - name: raw__paris__calendar__20250912
+      - name: raw__barcelona__calendar__20250914
+      - name: RAW__LONDON__CALENDAR__20250914
+      - name: RAW__LISBON__CALENDAR__20250921
+      - name: RAW__AMSTERDAM__LISTINGS__20250911
+      - name: RAW__BARCELONA__LISTINGS__20250914
+      - name: RAW__PARIS__LISTINGS__20250912
+      - name: RAW__LISBON__LISTINGS__20250921
+      - name: RAW__LONDON__LISTINGS__20250914
+      - name: RAW__AMSTERDAM__REVIEWS__20250911
+      - name: RAW__BARCELONA__REVIEWS__20250914
+      - name: RAW__PARIS__REVIEWS__20250912
+      - name: RAW__LONDON__REVIEWS__20250914
+      - name: RAW__LISBON__REVIEWS__20250921
