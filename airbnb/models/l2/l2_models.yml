@@ -1,0 +1,13 @@
+models:
+  - name: dim_listings
+    description: Combined listings from all cities into a single table.
+  - name: fct_reviews
+    description: Combined reviews from all cities into a single table.
+  - name: fct_calendar
+    description: Combined calendars from all cities into a single table.
+  - name: dim_calendar
+    description: Standard calendar dimension table.
+  - name: dim_city
+    description: Combined cities from all listings into a single table.
+  - name: dim_neighbourhoods
+    description: Neighbourhoods dimension table.
