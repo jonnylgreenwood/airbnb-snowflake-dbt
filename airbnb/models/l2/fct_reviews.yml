@@ -1,3 +1,0 @@
-models:
-  - name: fct_reviews
-    description: Combined reviews from all cities into a single table.

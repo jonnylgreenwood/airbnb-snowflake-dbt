@@ -1,3 +1,0 @@
-models:
-  - name: dim_listings
-    description: Combined listings from all cities into a single table.
