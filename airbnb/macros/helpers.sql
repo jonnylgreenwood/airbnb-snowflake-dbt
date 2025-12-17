@@ -15,3 +15,11 @@
   {%- set datestr = name[-8:] -%}
   to_date('{{ datestr }}', 'YYYYMMDD')
 {%- endmacro %}
+
+{% macro col_or_null(existing, colname, expr, alias) -%}
+  {%- if colname in existing -%}
+    {{ expr }} as {{ alias }}
+  {%- else -%}
+    null as {{ alias }}
+  {%- endif -%}
+{%- endmacro %}
