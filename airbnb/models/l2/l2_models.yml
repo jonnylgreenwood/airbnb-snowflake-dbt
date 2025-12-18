@@ -11,3 +11,7 @@ models:
     description: Combined cities from all listings into a single table.
   - name: dim_neighbourhoods
     description: Neighbourhoods dimension table.
+  - name: neighbourhood_market_snapshot
+    description: Fact table calculating occupancy rates by city and neighbourhood.
+  - name: neighbourhood_properties
+    description: Fact table calculating total properties by city and neighbourhood.
